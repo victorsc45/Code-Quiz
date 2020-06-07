@@ -1,42 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Josefin+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Code Quiz</title>
-  </head>
-  <body>
-    <header>
-      <h1>Coding Quiz Challenge</h1>
-    </header>
-    <div class="container">
-        <div class="buttons">
-            <button aria-label="play" id="play">
-              <i class="fa fa-play" aria-hidden="true"></i>
-            </button>
-        </div>
-        <div class="time">
-            <div id="minutes">2</div>
-            <div id="seconds">00</div>
+<head>
+  <title>Music Quiz</title>
+  <meta charset="utf-8" name="description" content="Test your knowledge of classic rock and popular musicians">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" type="text/css" href="float-grid.css"/>
+  <link rel="stylesheet" type="text/css" href="images"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<div id="splash-screen">
+
+  <div class="content">
+          <h3>Musician quiz</h3>
+          <div>
+            <p>This is a quiz about classic rock and popular rock musicians </p>
+           
+            <ul>
+              <li>1.Read the question carefully.</li>
+              <li>2. Select the correct answer from the multiple choice questions.</li>
+              <li>3. Get feedback on your answer and final score.</li>
+            </ul>
+            <p>So, Are you ready?</p>
+            <a id="start-button" href="#">Start Quiz!</a>
+            
           </div>
-   
-      <div class="inputs">
-        <div class="input-group">
-          <label id="minute-label" for="game-minutes">Total Quiz Minutes</label>
-          <input type="number" name="work" id="game-minutes" value="2" />
         </div>
-        </div>
+      </div>
+<header>
+<div class="row=">
+ <div class="top" >
+      <div class="col-12">
+      <span class="line-1"></span>
+      <span class="line-2"></span>
+      </div>
     </div>
-    <script src="./script.js"></script>
-  </body>
+</div>
+</header>
+<div class="row">
+<div class="col-6">
+<form id="game-form" action=" ">
+  
+
+    <h1>Music Quiz:</br> Classic rock and popular rock musicians</h1>
+    <h2 id="question"></h2><br>
+    
+  <p><input type="radio" id="r1" name="r1" value="0" ><label id="a1"></label></p><br>
+  <p><input type="radio"  id="r2" name="r1" value="1" ><label id="a2" ></label></p><br>
+  <p><input type="radio" id="r3" name="r1" value="2" ><label id="a3" ></label></p><br>
+  <p><input type="radio"  id="r4" name="r1" value="3" ><label id="a4" ></label></p><br>
+      <button type="text" class="quiz-check">Submit Answer</button>
+    
+ 
+  <section id="feedback">  
+    <h2 id="result"></h2>
+      <!-- <p id="answer">correct answer:  </p> -->
+      <button id="next" href="#">Next Question</button>
+  </section>
+    <h3 class="current-score">Score: <span id="score">0</span> of 20</h3>
+  </section>
+  <section id="finalScore">
+    <h2 id="final">Final Score Here</h2>
+    <button class="new" href="#">Play Again!</button>
+    <button class="rock" href="#">Click for Rock!</button>
+  </section>
+     
+   </form>
+ </div>
+ </div>
+<audio id="rock-sound" src="music/Framed.mp3" />
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
 </html>
