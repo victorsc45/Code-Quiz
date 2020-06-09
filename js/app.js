@@ -11,7 +11,7 @@ $(document).ready(function(){
 	var answer;
 	var chooseItem = [];
 	var scoreTotal = 0;
-	
+	$("#top").html("Javascript Code Quiz!");
 	// $(".rock").hide();
 	$("#game-form").hide();
 	$(".top").hide();
@@ -24,7 +24,7 @@ $(document).ready(function(){
    	$(".new").hide();
    	$(".rock").show();
    	codeQuiz(i);
-	
+	   
 })
 
 // 	$(".rock").click(function (event){
@@ -103,7 +103,7 @@ $(document).ready(function(){
 		},
 		{
 			question:'How can you add a comment in a JavaScript?',
-			chooseItem:['||This is a comment', '"This is a comment', '<!--This is a comment-->', '//This is a comment'],
+			chooseItem:['||This is a comment', '"This is a comment', '<<<<-This is a comment>>>>', '//This is a comment'],
 			answer: 3,
 		},
 		{
@@ -162,15 +162,15 @@ loadQandA(questions, i);
 	
 	numOfQuestions = questions.length;
 	
-	$("#question").html("Question" + " " + (1 + i) +" "+ "of" + " " +questions.length+" " + questions[i].question);
+	$("#question").append(questions[i].question);
 	   		
-	$("#a1").append( "Answer 1." + " " +" " +" "+ questions[i].chooseItem[0]);
+	$("#a1").append(questions[i].chooseItem[0]);
 		
-    $("#a2").append( "Answer 2." + " "+" "+" "+ questions[i].chooseItem[1]);
+    $("#a2").append(questions[i].chooseItem[1]);
         
-    $("#a3").append( "Answer 3." +" "+ " " +" "+ questions[i].chooseItem[2]);
+    $("#a3").append(questions[i].chooseItem[2]);
        
-    $("#a4").append( "Answer 4." + " "+ " " +" "+ questions[i].chooseItem[3]);
+    $("#a4").append(questions[i].chooseItem[3]);
            
   	
   			delete correctAnswer;
@@ -264,15 +264,15 @@ loadQandA(questions, i);
    	$("#result").html(" "); 
    	$(".quiz-check").attr('disabled', false);
    	$("#next").attr('disabled', true);
-  	$("#final").html("Keep on Rockin'!");
+  	$("#final").html("timerhere");
    	
 
  	
   	if(counter == 20){
 		endGame();
 	}else{
-	 
-	questions = [codeQuiz(++i)];
+	
+	questions = [codeQuiz(i++)];
 	
 	
    	loadQandA(questions, i);
@@ -331,5 +331,5 @@ $(".new").click(function (event){
 });
 		
 }	
-					
+				
 });

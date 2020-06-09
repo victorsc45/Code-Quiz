@@ -52,6 +52,9 @@ h1 {
 	padding: 20px;
 	font-size: 40px;
 }
+h2 {
+	text-align: center;
+}
 
 button,  input[type="text"]{
 	color: white;
@@ -161,3 +164,10 @@ form {
 	
 }
 
+#top {
+	padding: 20px;
+	font-size: 40px;
+	text-align: center;
+	color: #fff;
+	padding: 20px;
+}
