@@ -6,12 +6,13 @@ $(document).ready(function(){
 	var q = true;
 	var counter = 0;
 	var final = 0;
-	var rock = true;
+	// var rock = true;
 	var question;
 	var answer;
 	var chooseItem = [];
 	var scoreTotal = 0;
-	$(".rock").hide();
+	
+	// $(".rock").hide();
 	$("#game-form").hide();
 	$(".top").hide();
 	$("#start-button").on("click",function(){ 
@@ -26,22 +27,22 @@ $(document).ready(function(){
 	
 })
 
-	$(".rock").click(function (event){
-         event.preventDefault();
+// 	$(".rock").click(function (event){
+//          event.preventDefault();
 
-		if(rock == true){
+// 		if(rock == true){
 			
-  	$("#rock-sound")[0].volume = 0.5;
-    $("#rock-sound")[0].load();
-    $("#rock-sound")[0].play();
-    $( ".line-1" ).text("music by:Rockefeller Horsecollar");
-    rock = false;
-}else{
-	$("#rock-sound")[0].pause();
- 	 $( ".line-1" ).text(" ");
- 	rock = true;   
-}
-})
+//   	$("#rock-sound")[0].volume = 0.5;
+//     $("#rock-sound")[0].load();
+//     $("#rock-sound")[0].play();
+//     $( ".line-1" ).text("music by:Rockefeller Horsecollar");
+//     rock = false;
+// }else{
+// 	$("#rock-sound")[0].pause();
+//  	 $( ".line-1" ).text(" ");
+//  	rock = true;   
+// }
+// })
 
 
 	
@@ -256,10 +257,10 @@ loadQandA(questions, i);
 	$("#a3").html(" ");  
     $("#a4").html(" "); 
    	$("#question").html(" ");
-   	$("#r1").attr('checked', false);
-   	$("#r2").attr('checked', false);
-   	$("#r3").attr('checked', false);
-   	$("#r4").attr('checked', false);
+   	$("#r1").prop('checked', false);
+   	$("#r2").prop('checked', false);
+   	$("#r3").prop('checked', false);
+   	$("#r4").prop('checked', false);
    	$("#result").html(" "); 
    	$(".quiz-check").attr('disabled', false);
    	$("#next").attr('disabled', true);
