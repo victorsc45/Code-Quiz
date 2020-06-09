@@ -3,10 +3,10 @@
 }
 
 body {
-	background-image: url("../images/freeimagerockflame.jpg");
-	background-image: 
-    linear-gradient(rgba(255,0,0,0.8));
-	background-color: black;
+	background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+	/* background-image:  */
+    /* linear-gradient(rgba(255,0,0,0.8)); */
+	/* background-color: black; */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -41,7 +41,9 @@ label{
 		margin-left: 20px;
 }
 header .top {
-	background-image: url("../images/musicians.jpeg");
+	/* background-image: background-color: #c8ebe9; */
+	background-image: url("https://www.transparenttextures.com/patterns/broken-noise.png");
+	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 	background-image: repeat;
 
 } 
