@@ -23,7 +23,7 @@ $(document).ready(function(){
    	$("#next").attr('disabled', true);
    	$(".new").hide();
    	$(".rock").show();
-   	musicQuiz(i);
+   	codeQuiz(i);
 	
 })
 
@@ -46,7 +46,7 @@ $(document).ready(function(){
 
 
 	
-   function musicQuiz(i){
+   function codeQuiz(i){
    	
 		
    	
@@ -272,7 +272,7 @@ loadQandA(questions, i);
 		endGame();
 	}else{
 	 
-	questions = [musicQuiz(++i)];
+	questions = [codeQuiz(++i)];
 	
 	
    	loadQandA(questions, i);
