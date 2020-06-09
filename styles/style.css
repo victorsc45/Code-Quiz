@@ -47,10 +47,11 @@ header .top {
 	background-image: repeat;
 
 } 
-h1 {
-
-	padding: 20px;
-	font-size: 40px;
+#h1 {
+	padding: 10px;
+	
+	color: #fff;
+	/* font-size: 40px; */
 }
 h2 {
 	text-align: center;
@@ -58,7 +59,7 @@ h2 {
 
 button,  input[type="text"]{
 	color: white;
-	text-shadow: black;	
+	/* text-shadow: black;	 */
   display: inline-block;
   padding: 5px;
   width: 800px;
@@ -71,21 +72,20 @@ button:hover {
 }
 .col-6 {
 	float: center;
-	margin-left: 80px;
-	margin-top: 60px;
+	/* margin-left: 80px;
+	margin-top: 60px; */
 }
 form {
-
-	
+		
 	background-color: #4aaaa4;
 	width: 800px;
 	border-radius: 25px;
 	border-color: white;
-	border-width: 3px;
+	border-width: 12px;
 	font-size: 20px;
 	font-weight: 200;
 	align-content: center;
-	/*margin-left: 260px;*/
+	/* margin-left: 260px; */
 }
 #splashscreen {
 	width: 100%;
@@ -165,9 +165,25 @@ form {
 }
 
 #top {
-	padding: 20px;
+	width: 100%;
 	font-size: 40px;
 	text-align: center;
 	color: #fff;
-	padding: 20px;
+	padding: 10px;
+	margin-bottom: 20px;
 }
+#minutes {
+	font-size: 2em;
+	float: left;
+	margin-left: 50%;
+  }
+  
+  #seconds {
+	font-size: 1em;
+	float: left;
+  }
+  .main-container {
+	  width: auto;
+	  max-width: 800px;
+	  margin: 0;
+  }

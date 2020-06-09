@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	
+	// use this to calculate +- time and cast to html timer (#final)
 	var i = 0;
 	var x = true;
 	var q = true;
@@ -164,24 +164,24 @@ loadQandA(questions, i);
 	
 	$("#question").append(questions[i].question);
 	   		
-	$("#a1").append(questions[i].chooseItem[0]);
+	$("#a1").append("1: " + " " + questions[i].chooseItem[0]);
 		
-    $("#a2").append(questions[i].chooseItem[1]);
+    $("#a2").append("2: " + " " + questions[i].chooseItem[1]);
         
-    $("#a3").append(questions[i].chooseItem[2]);
+    $("#a3").append("3: " + " " + questions[i].chooseItem[2]);
        
-    $("#a4").append(questions[i].chooseItem[3]);
+    $("#a4").append("4: " + " " + questions[i].chooseItem[3]);
            
   	
   			delete correctAnswer;
   			 
-			correctAnswer = questions[i].answer;
+			
 			validateAnswer(questions, i);
 	
 }
 
 	function validateAnswer(questions, i){
-		 
+		 correctAnswer = questions[i].answer;
 		
 	
 		$(".quiz-check").click(function (event) {
@@ -264,7 +264,7 @@ loadQandA(questions, i);
    	$("#result").html(" "); 
    	$(".quiz-check").attr('disabled', false);
    	$("#next").attr('disabled', true);
-  	$("#final").html("timerhere");
+  	// $("#final").html("timerhere");
    	
 
  	
@@ -272,10 +272,10 @@ loadQandA(questions, i);
 		endGame();
 	}else{
 	
-	questions = [codeQuiz(i++)];
+	questons = [codeQuiz(i++)];
 	
 	
-   	loadQandA(questions, i);
+   	// loadQandA(questions, i);
  	}
 
  	})

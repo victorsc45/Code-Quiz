@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Music Quiz</title>
-  <meta charset="utf-8" name="description" content="Test your knowledge of classic rock and popular musicians">
+  <title>Code Quiz</title>
+  <meta charset="utf-8" name="description" content="Test your knowledge of JavaScript">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles/reset.css">
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" type="text/css" href="float-grid.css"/>
-  <!-- <link rel="stylesheet" type="text/css" href="images"/> -->
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+
+   <!-- Added a link to Bootstrap-->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -34,20 +37,19 @@
         </div>
       </div>
 <header>
-<div class="row=">
+
  <div class="top" >
       <div class="col-12">
       <h1 id="top"></h1>
       </div>
-    </div>
-</div>
+  </div>
 </header>
-<div class="row">
-<div class="col-6">
-<form id="game-form" action=" ">
+<div class="row container-fluid main-container mx-auto">
+<!-- <div class="col-xs-12 col-sm-8 col-md-6 col-6 mx-auto"> -->
+<form id="game-form">
   
 
-    <h1>Code Quiz: JavaScript knowledge Engage!</h1><br> <h2 class="timer"></h2>
+    <h1 id="h1">Code Quiz: JavaScript knowledge Engage!</h1>
     <h2 id="question"></h2><br>
     
   <p><input type="radio" id="r1" name="r1" value="0" ><label id="a1"></label></p><br>
@@ -62,17 +64,21 @@
       <p id="plus-minus-time"></p>
       <button id="next" href="#">Next Question</button>
   </section>
-    <h3 class="current-score">Score: <span id="score">0</span> of 20</h3>
-  </section>
+  
   <section id="finalScore">
-    <h2 id="final">02:00 minutes</h2>
+    <h3 class="current-score">Score: <span id="score">0</span> of 20</h3>
+    <h2 id="final"></h2>
+     <div class="time">
+      <div id="minutes">02</div>
+      <div id="seconds">00</div>
+    </div>
     <button class="new" href="#">Play Again!</button>
     <button class="rock" href="#">Click for Rock!</button>
   </section>
      
-   </form>
- </div>
- </div>
+</form>
+<!-- </div> -->
+</div>
 <audio id="rock-sound" src="music/Framed.mp3" />
 
 <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js" charset="utf-8"></script> -->
