@@ -8,7 +8,7 @@ $(document).ready(function () {
   // let rock = true;
   let question;
   let answer;
-  let chooseItem = [];
+  //   let chooseItem;
   let scoreTotal = 0;
   $("#top").html("Javascript Code Quiz!");
   // $(".rock").hide();
@@ -57,10 +57,10 @@ $(document).ready(function () {
       {
         question: "Where is the correct place to insert a JavaScript?",
         chooseItem: [
-          "The body tag section",
-          "The head tag section",
-          "below the html closing tag",
-          "Both the head tag section and the body tag sections are correct",
+          "The body> tag section",
+          "The head> tag section",
+          "below the html> closing tag",
+          "Both the head> tag section and the body> tag sections are correct",
         ],
         answer: 3,
       },
@@ -230,13 +230,13 @@ $(document).ready(function () {
       },
     ];
 
+    correctAnswer = questions[i].answer;
+    numOfQuestions = questions[i].question;
     loadQandA(questions, i);
   }
 
   function loadQandA(questions, i) {
-    // numOfQuestions = questions.length;
-
-    $("#question").html(questions[i].question);
+    $("#question").html(numOfQuestions);
 
     $("#a1").append("1: " + " " + questions[i].chooseItem[0]);
 
@@ -245,9 +245,7 @@ $(document).ready(function () {
     $("#a3").append("3: " + " " + questions[i].chooseItem[2]);
 
     $("#a4").append("4: " + " " + questions[i].chooseItem[3]);
-    delete correctAnswer;
 
-    correctAnswer = questions[i].answer;
     validateAnswer(questions, i);
   }
 
