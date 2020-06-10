@@ -1,89 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Code Quiz</title>
-  <meta charset="utf-8" name="description" content="Test your knowledge of JavaScript">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>Code Quiz</title>
+    <meta
+      charset="utf-8"
+      name="description"
+      content="Test your knowledge of JavaScript"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" type="text/css" href="float-grid.css"/>
-   
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="float-grid.css" />
 
-   <!-- Added a link to Bootstrap-->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-</head>
-<body>
+    <!-- Added a link to Bootstrap-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div id="splash-screen">
+      <div class="content">
+        <h3>JavaScript Code Quiz</h3>
+        <div>
+          <p>Test your knowledge of JavaScript</p>
 
-
-<div id="splash-screen">
-
-  <div class="content">
-          <h3>JavaScript Code Quiz</h3>
-          <div>
-            <p>Test your knowledge of JavaScript </p>
-           
-            <ul>
-              <li>1. Select the correct answer from the multiple choice questions</li>
-              <li>2. Get feedback on your answer and final score</li>
-              <li>3. Timer starts at 2 minutes</li>
-              <li>4. -5 seconds per wrong answer, +5 seconds per correct answers</li>
-            </ul>
-            <p>Here we go!</p>
-            <a id="start-button" href="#">Start Quiz!</a>
-            
-          </div>
+          <ul>
+            <li>
+              1. Select the correct answer from the multiple choice questions
+            </li>
+            <li>2. Get feedback on your answer and final score</li>
+            <li>3. Timer starts at 2 minutes</li>
+            <li>
+              4. -5 seconds per wrong answer, +5 seconds per correct answers
+            </li>
+          </ul>
+          <p>Here we go!</p>
+          <a id="start-button" href="#">Start Quiz!</a>
         </div>
       </div>
-<header>
-
- <div class="top" >
-      <div class="col-12">
-      <h1 id="top"></h1>
-      </div>
-  </div>
-</header>
-<div class="row container-fluid main-container mx-auto">
-<!-- <div class="col-xs-12 col-sm-8 col-md-6 col-6 mx-auto"> -->
-<form id="game-form">
-  
-
-    <h1 id="h1">Code Quiz: JavaScript knowledge Engage!</h1>
-    <h2 id="question"></h2><br>
-    
-  <p><input type="radio" id="r1" name="r1" value="0" ><label id="a1"></label></p><br>
-  <p><input type="radio"  id="r2" name="r1" value="1" ><label id="a2" ></label></p><br>
-  <p><input type="radio" id="r3" name="r1" value="2" ><label id="a3" ></label></p><br>
-  <p><input type="radio"  id="r4" name="r1" value="3" ><label id="a4" ></label></p><br>
-      <button type="text" class="quiz-check">Submit Answer</button>
-    
- 
-  <section id="feedback">  
-    <h2 id="result"></h2>
-      <p id="plus-minus-time"></p>
-      <button id="next" href="#">Next Question</button>
-  </section>
-  
-  <section id="finalScore">
-    <h3 class="current-score">Score: <span id="score">0</span> of 20</h3>
-    <h2 id="final"></h2>
-     <div class="time">
-      <div id="minutes">02</div>
-      <div id="seconds">00</div>
     </div>
-    <button class="new" href="#">Play Again!</button>
-    <button class="rock" href="#">Click for Rock!</button>
-  </section>
-     
-</form>
-<!-- </div> -->
-</div>
-<audio id="rock-sound" src="music/Framed.mp3" />
+    <header>
+      <div class="top">
+        <div class="col-12">
+          <h1 id="top"></h1>
+        </div>
+      </div>
+    </header>
+    <div class="row container-fluid main-container mx-auto">
+      <!-- <div class="col-xs-12 col-sm-8 col-md-6 col-6 mx-auto"> -->
+      <form id="game-form">
+        <h1 id="h1">Code Quiz: JavaScript knowledge Engage!</h1>
+        <h2 id="question"></h2>
+        <br />
 
-<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js" charset="utf-8"></script> -->
-<!-- Added link to the jQuery Library -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
+        <p>
+          <input type="radio" id="r1" name="r1" value="0" /><label
+            id="a1"
+          ></label>
+        </p>
+        <br />
+        <p>
+          <input type="radio" id="r2" name="r1" value="1" /><label
+            id="a2"
+          ></label>
+        </p>
+        <br />
+        <p>
+          <input type="radio" id="r3" name="r1" value="2" /><label
+            id="a3"
+          ></label>
+        </p>
+        <br />
+        <p>
+          <input type="radio" id="r4" name="r1" value="3" /><label
+            id="a4"
+          ></label>
+        </p>
+        <br />
+        <button type="text" class="quiz-check">Submit Answer</button>
+
+        <section id="feedback">
+          <h2 id="result"></h2>
+          <p id="plus-minus-time"></p>
+          <button id="next" href="#">Next Question</button>
+        </section>
+
+        <section id="finalScore">
+          <h3 class="current-score">Score: <span id="score">0</span> of 20</h3>
+          <h2 id="final"></h2>
+          <div class="time">
+            <div id="minutes">02</div>
+            <div id="seconds">00</div>
+          </div>
+          <button class="new" href="#">Play Again!</button>
+          <button class="rock" href="#">Click for Rock!</button>
+        </section>
+      </form>
+      <!-- </div> -->
+    </div>
+    <audio id="rock-sound" src="music/Framed.mp3" />
+
+    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js" charset="utf-8"></script> -->
+    <!-- Added link to the jQuery Library -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+      charset="utf-8"
+    ></script>
     <script type="text/javascript" src="js/app.js"></script>
-</body>
+  </body>
 </html>
