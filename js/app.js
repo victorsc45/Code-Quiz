@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // use this to calculate +- time and cast to html timer (#final)
+  //variables for quiz question functions
   let i = 0;
   let x = true;
   let q = true;
@@ -8,7 +8,7 @@ $(document).ready(function () {
   // let rock = true;
   let question;
   let answer;
-  //   let chooseItem;
+  let chooseItem = [];
   let scoreTotal = 0;
   $("#top").html("Javascript Code Quiz!");
   // $(".rock").hide();
@@ -349,6 +349,7 @@ $(document).ready(function () {
     $("#r2").prop("checked", false);
     $("#r3").prop("checked", false);
     $("#r4").prop("checked", false);
+
     $("#next").attr("disabled", true);
     $("#next").hide();
     $(".quiz-check").attr("disabled", true);
