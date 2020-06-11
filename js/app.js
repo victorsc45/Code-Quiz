@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var timer = $(".timer");
   let countIt = 0;
-  let timeAmount = 10;
+  let timeAmount = 60;
   let loseTime = 0;
   //variables for quiz question functions
   let i = 0;
@@ -28,8 +28,9 @@ $(document).ready(function () {
     $(".new").hide();
     $(".rock").show();
     codeQuiz(i);
-    startTimer();
+    timeCounter();
   });
+
 
   // 	$(".rock").click(function (event){
   //          event.preventDefault();
@@ -53,17 +54,23 @@ $(document).ready(function () {
     sec = Number(s % 60);
     if (sec < 10) {
       return "0" + min + ":" + "0" + sec;
-    } else return "0" + min + ":" + sec;
-  }
+    } else {
+      return "0" + min + ":" + sec;
+    }
 
+  }
   const interval = setInterval(timeCounter, 1000);
   // timer.html(convertSecs(timeAmount - countIt - loseTime));
   function timeCounter() {
     countIt++;
+
     timer.html(convertSecs(timeAmount - countIt - loseTime));
     loseTime = loseTime + 0;
-    if (countIt >= timeAmount) {
+    if (countIt >= timeAmount - loseTime) {
       clearInterval(interval);
+      countIt = 0;
+      loseTime = 0;
+      timer.html("min 00 : seconds 00 times up player!");
       endGame();
     }
   }
@@ -263,13 +270,13 @@ $(document).ready(function () {
   function loadQandA(questions, i) {
     $("#question").html(numOfQuestions);
 
-    $("#a1").append("1: " + " " + questions[i].chooseItem[0]);
+    $("#a1").html("1: " + " " + questions[i].chooseItem[0]);
 
-    $("#a2").append("2: " + " " + questions[i].chooseItem[1]);
+    $("#a2").html("2: " + " " + questions[i].chooseItem[1]);
 
-    $("#a3").append("3: " + " " + questions[i].chooseItem[2]);
+    $("#a3").html("3: " + " " + questions[i].chooseItem[2]);
 
-    $("#a4").append("4: " + " " + questions[i].chooseItem[3]);
+    $("#a4").html("4: " + " " + questions[i].chooseItem[3]);
 
     validateAnswer(questions, i);
   }
@@ -314,50 +321,63 @@ $(document).ready(function () {
   }
 
   function nextQuestion() {
+
     $("#next").click(function (event) {
       event.preventDefault();
 
-      $("input[name='r1']").attr("disabled", false);
+      $("input[name='r1']").attr('disabled', false);
       $("#a1").html(" ");
       $("#a2").html(" ");
       $("#a3").html(" ");
       $("#a4").html(" ");
       $("#question").html(" ");
-      $("#r1").prop("checked", false);
-      $("#r2").prop("checked", false);
-      $("#r3").prop("checked", false);
-      $("#r4").prop("checked", false);
+      $("#r1").prop('checked', false);
+      $("#r2").prop('checked', false);
+      $("#r3").prop('checked', false);
+      $("#r4").prop('checked', false);
       $("#result").html(" ");
-      $(".quiz-check").attr("disabled", false);
-      $("#next").attr("disabled", true);
-      // $("#final").html("timerhere");
+      $(".quiz-check").attr('disabled', false);
+      $("#next").attr('disabled', true);
+      // $("#final").html("Keep on Rockin'!");
+
+
 
       if (counter == 20) {
         endGame();
       } else {
+
         questions = [codeQuiz(++i)];
+
 
         loadQandA(questions, i);
       }
+
     });
+
+
+
   }
   function scoreTot(x) {
     if (x != true) {
+      counter++;
       delete correctAnswer;
       delete userAnswer;
       scoreTotal = scoreTotal + 0;
       $("#result").html("Answer is incorrect!");
       $("#score").html(scoreTotal);
+      $("#currentQuest").html(" " + "of" + " " + counter);
+
     } else if (x == true) {
+      counter++;
       delete correctAnswer;
       delete userAnswer;
       scoreTotal++;
       $("#result").html("Answer is correct!");
       $("#score").html(scoreTotal);
+      $("#currentQuest").html(" " + "of" + " " + counter);
     }
-    counter++;
-    final = (scoreTotal / counter) * 100;
 
+    final = Math.floor((scoreTotal / counter) * 100);
     nextQuestion();
   }
 
@@ -384,6 +404,6 @@ $(document).ready(function () {
     $(".new").click(function (event) {
       event.preventDefault();
       location.reload(true);
-    });
+    })
   }
 });
