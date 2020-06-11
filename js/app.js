@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  var timer = $(".timer");
+  let countIt = 0;
+  let timeAmount = 10;
+  let loseTime = 0;
   //variables for quiz question functions
   let i = 0;
   let x = true;
@@ -10,6 +14,7 @@ $(document).ready(function () {
   let answer;
   let chooseItem = [];
   let scoreTotal = 0;
+
   $("#top").html("Javascript Code Quiz!");
   // $(".rock").hide();
   $("#game-form").hide();
@@ -23,6 +28,7 @@ $(document).ready(function () {
     $(".new").hide();
     $(".rock").show();
     codeQuiz(i);
+    startTimer();
   });
 
   // 	$(".rock").click(function (event){
@@ -42,6 +48,25 @@ $(document).ready(function () {
   // }
   // })
 
+  function convertSecs(s) {
+    min = Math.floor(s / 60);
+    sec = Number(s % 60);
+    if (sec < 10) {
+      return "0" + min + ":" + "0" + sec;
+    } else return "0" + min + ":" + sec;
+  }
+
+  const interval = setInterval(timeCounter, 1000);
+  // timer.html(convertSecs(timeAmount - countIt - loseTime));
+  function timeCounter() {
+    countIt++;
+    timer.html(convertSecs(timeAmount - countIt - loseTime));
+    loseTime = loseTime + 0;
+    if (countIt >= timeAmount) {
+      clearInterval(interval);
+      endGame();
+    }
+  }
   function codeQuiz(i) {
     var questions = [
       {
@@ -279,7 +304,7 @@ $(document).ready(function () {
           $(this).attr("disabled", "disabled");
         });
         $(".quiz-check").attr("disabled", true);
-
+        loseTime = loseTime + 5;
         x = false;
         scoreTot(x);
       }
@@ -349,7 +374,6 @@ $(document).ready(function () {
     $("#r2").prop("checked", false);
     $("#r3").prop("checked", false);
     $("#r4").prop("checked", false);
-
     $("#next").attr("disabled", true);
     $("#next").hide();
     $(".quiz-check").attr("disabled", true);
