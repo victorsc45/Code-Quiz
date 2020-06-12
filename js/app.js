@@ -1,4 +1,12 @@
 $(document).ready(function () {
+  //highscore variables
+  var highInput = document.querySelector("#high-text");
+  var highSave = document.querySelector("#save");
+  var highList = document.querySelector("#high-list");
+  var highCountSpan = document.querySelector("#high-count");
+  var highs = [];
+
+  //timer variables
   var timer = $(".timer");
   let countIt = 0;
   let timeAmount = 60;
@@ -14,11 +22,18 @@ $(document).ready(function () {
   let answer;
   let chooseItem = [];
   let scoreTotal = 0;
-
+  let interval;
+  $("#save").hide();
+  $("#initials").hide();
+  $("#high-text").hide();
+  $("#high-count").hide();
+  $("#high-list").hide();
+  $("#highCounter").hide();
   $("#top").html("Javascript Code Quiz!");
-  // $(".rock").hide();
+
   $("#game-form").hide();
   $(".top").hide();
+  //click start quiz on splash page to begin quiz
   $("#start-button").on("click", function () {
     $("#splash-screen").hide();
     $("#game-form").show();
@@ -26,29 +41,15 @@ $(document).ready(function () {
     $(".top").show();
     $("#next").attr("disabled", true);
     $(".new").hide();
-    $(".rock").show();
+    $(".high").hide();
     codeQuiz(i);
-    timeCounter();
+    interval = setInterval(timeCounter, 1000);
+
   });
 
 
-  // 	$(".rock").click(function (event){
-  //          event.preventDefault();
 
-  // 		if(rock == true){
-
-  //   	$("#rock-sound")[0].volume = 0.5;
-  //     $("#rock-sound")[0].load();
-  //     $("#rock-sound")[0].play();
-  //     $( ".line-1" ).text("music by:Rockefeller Horsecollar");
-  //     rock = false;
-  // }else{
-  // 	$("#rock-sound")[0].pause();
-  //  	 $( ".line-1" ).text(" ");
-  //  	rock = true;
-  // }
-  // })
-
+  // timer functions below
   function convertSecs(s) {
     min = Math.floor(s / 60);
     sec = Number(s % 60);
@@ -57,16 +58,18 @@ $(document).ready(function () {
     } else {
       return "0" + min + ":" + sec;
     }
-
   }
-  const interval = setInterval(timeCounter, 1000);
-  // timer.html(convertSecs(timeAmount - countIt - loseTime));
+
+  // Timer counter  and 
   function timeCounter() {
     countIt++;
-
-    timer.html(convertSecs(timeAmount - countIt - loseTime));
-    loseTime = loseTime + 0;
-    if (countIt >= timeAmount - loseTime) {
+    finalTimer = timeAmount - countIt - loseTime;
+    timer.html(convertSecs(finalTimer));
+    // loseTime = loseTime + 0;
+    //Stop timer if total time is reached
+    if (finalTimer <= 0) {
+      console.log(finalTimer);
+      console.log(timeAmount);
       clearInterval(interval);
       countIt = 0;
       loseTime = 0;
@@ -74,6 +77,94 @@ $(document).ready(function () {
       endGame();
     }
   }
+
+
+  $(".high").on("click", function (event) {
+    event.preventDefault();
+    $("#initials").show();
+    $("#high-text").show();
+    $("#highCounter").show();
+    $("#high-count").show();
+    $("#high-list").show();
+    $("#save").show();
+    init();
+  });
+  function init() {
+    // Get stored highs from localStorage
+    // Parsing the JSON string to an object
+    var storedhighs = JSON.parse(localStorage.getItem("highs"));
+
+    // If highs were retrieved from localStorage, update the highs array to it
+    if (storedhighs !== null) {
+      highs = storedhighs;
+    }
+
+    // Render highs to the DOM
+    renderhighs();
+  }
+
+  function renderhighs() {
+    // Clear highList element and update highCountSpan
+    highList.innerHTML = "";
+    highCountSpan.textContent = highs.length;
+
+    // Render a new li for each high
+    for (var i = 0; i < highs.length; i++) {
+      var high = highs[i];
+
+      var li = document.createElement("li");
+      console.log(high)
+      li.textContent = Object.keys(high)[0] + "" + high[Object.keys(high)[0]];
+      li.setAttribute("data-index", i);
+
+
+      highList.appendChild(li);
+    }
+  }
+
+  function storehighs() {
+    // Stringify and set "highs" key in localStorage to highs array
+    localStorage.setItem("highs", JSON.stringify(highs));
+  }
+
+  // When form is submitted...
+  highSave.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    var highText = highInput.value.trim()
+    console.log("INitials:", highText)
+
+    // Return from function early if submitted highText is blank
+    // if (highText === "") {
+    //   return;
+    // }
+
+    // Add new highText to highs array, clear the input
+    var newScore = {
+      [highText]: final
+    }
+    highs.push(newScore);
+    highInput.value = "";
+
+    // Store updated highs in localStorage, re-render the list
+    storehighs();
+    renderhighs();
+  });
+  //When a element inside of the highList is clicked...
+  // highList.addEventListener("click", function (event) {
+  //   var element = event.target;
+
+  //If that element is a button...
+  //if (element.matches("button") === true) {
+  // Get its data-index value and remove the high element from the list
+  // var index = element.parentElement.getAttribute("data-index");
+  // highs.splice(index, 1);
+
+  // Store updated highs in localStorage, re-render the list
+  //storehighs();
+  //  renderhighs();
+  //  }
+  // });
   function codeQuiz(i) {
     var questions = [
       {
@@ -264,6 +355,7 @@ $(document).ready(function () {
 
     correctAnswer = questions[i].answer;
     numOfQuestions = questions[i].question;
+    let chooseItem = [];
     loadQandA(questions, i);
   }
 
@@ -338,7 +430,7 @@ $(document).ready(function () {
       $("#result").html(" ");
       $(".quiz-check").attr('disabled', false);
       $("#next").attr('disabled', true);
-      // $("#final").html("Keep on Rockin'!");
+
 
 
 
@@ -398,11 +490,12 @@ $(document).ready(function () {
     $("#next").hide();
     $(".quiz-check").attr("disabled", true);
     $(".quiz-check").hide();
+    $(".high").show();
     $("#final").html("The final score is..." + " " + final + "%");
     $("#result").html("Click...Play Again! for another round!");
     $("input[name='r1']").hide();
     $(".new").click(function (event) {
-      event.preventDefault();
+      console.log("new clicked");
       location.reload(true);
     })
   }

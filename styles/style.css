@@ -184,3 +184,39 @@ form {
   max-width: 800px;
   margin: 0;
 }
+.main-container > input {
+  height: 50px;
+  width: 100%;
+  padding: 6px;
+  margin-top: 10px;
+  font-size: 2.4em;
+  border: none;
+}
+
+.main-container > ul {
+  list-style-type: none;
+  padding: 0;
+  background-color: white;
+}
+
+.main-container > li {
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #4aaaa4;
+  color: white;
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+
+.main-container > li:before {
+  content: "\200B";
+  position: absolute;
+}
+
+.main-container > li::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
