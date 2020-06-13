@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="styles/reset.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="styles/reset.css" /> -->
   <link rel="stylesheet" href="styles/style.css" />
-  <link rel="stylesheet" type="text/css" href="float-grid.css" />
+  <link rel="stylesheet" type="text/css" href="styles/float-grid.css" />
 
   <!-- Added a link to Bootstrap-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
@@ -44,64 +44,61 @@
       </div>
     </div>
   </header>
-  <div class="container-fluid main-container mx-auto">
-    <div class="row">
-      <div class=" col-3 col-4 col-6 col-12">
 
 
-        <form id="game-form">
+  <form id="game-form" class="mx-auto">
 
-          <h1 id="h1">Code Quiz: JavaScript knowledge Engage!</h1>
-          <h4 id="question"></h4>
-          <br />
-          <label id="initials" for="high-text">Add Initials to HighScore:</label>
-          <input type="text" maxlength="3" placeholder="Input your initials to save highscore" name="high-text"
-            id="high-text" />
-          <button id="save">SAVE</button>
-          <button id="buttn" href="#">clear high scores</button>
-          <p id="highCounter">HighScore Count: <span id="high-count">0</span></p>
-          <ul id="high-list"></ul>
-          <p class="ques">
-            <input type="radio" id="r1" name="r1" value="0" /><label id="a1"></label>
-          </p>
-          <br />
-          <p class="ques">
-            <input type="radio" id="r2" name="r1" value="1" /><label id="a2"></label>
-          </p>
-          <br />
-          <p class="ques">
-            <input type="radio" id="r3" name="r1" value="2" /><label id="a3"></label>
-          </p>
-          <br />
-          <p class="ques">
-            <input type="radio" id="r4" name="r1" value="3" /><label id="a4"></label>
-          </p>
-          <br />
-          <button type="text" class="quiz-check">Submit Answer</button>
+    <div class="form-row">
+      <div class="container-fluid main-container  col-xs-3 col-sm-4 col-md-6 col-lg-12">
 
-          <section id="feedback">
-            <h4 id="result"></h4>
-            <p id="plus-minus-time"></p>
-            <button id="next" href="#">Next Question</button>
-          </section>
+        <h1 id="h1">Code Quiz: JavaScript knowledge Engage!</h1>
+        <h4 id="question"></h4>
+        <br />
+        <label id="initials" for="high-text">Add Initials to HighScore:</label>
+        <input type="text" maxlength="3" placeholder="Input your initials to save highscore" name="high-text"
+          id="high-text" />
+        <button id="save">SAVE</button>
+        <button id="buttn" href="#">clear high scores</button>
+        <p id="highCounter">HighScore Count: <span id="high-count">0</span></p>
+        <ul id="high-list"></ul>
+        <p class="ques">
+          <input type="radio" id="r1" name="r1" value="0" /><label id="a1"></label>
+        </p>
+        <br />
+        <p class="ques">
+          <input type="radio" id="r2" name="r1" value="1" /><label id="a2"></label>
+        </p>
+        <br />
+        <p class="ques">
+          <input type="radio" id="r3" name="r1" value="2" /><label id="a3"></label>
+        </p>
+        <br />
+        <p class="ques">
+          <input type="radio" id="r4" name="r1" value="3" /><label id="a4"></label>
+        </p>
+        <br />
+        <button type="text" class="quiz-check">Submit Answer</button>
 
-          <section id="finalScore">
-            <h4 class="current-score">Score: <span id="score"> 0 </span><span id="currentQuest"> of 20 </span></h4>
-            <h4 id="final"></h4>
-            <div class="time">
-              <h4 class="timer"></h4>
-            </div>
-            <button class="new" href="#">Play Again!</button>
-            <button class="high" href="#">High Scores</button>
+        <section id="feedback">
+          <h4 id="result"></h4>
+          <p id="plus-minus-time"></p>
+          <button id="next" href="#">Next Question</button>
+        </section>
 
-
-
-
-          </section>
-        </form>
+        <section id="finalScore">
+          <h4 class="current-score">Score: <span id="score"> 0 </span><span id="currentQuest"> of 20 </span></h4>
+          <h4 id="final"></h4>
+          <div class="time">
+            <h4 class="timer"></h4>
+          </div>
+          <button class="new" href="#">Play Again!</button>
+          <button class="high" href="#">High Scores</button>
+        </section>
       </div>
     </div>
-  </div>
+  </form>
+
+
   <audio id="rock-sound" src="music/Framed.mp3" />
 
 

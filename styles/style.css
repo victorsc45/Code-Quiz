@@ -57,9 +57,11 @@ header .top {
   font-size : 30px;
   color: #fff;
   text-align: center;
+  width: auto;
 }
 h4 {
   text-align: center;
+  width: auto;
 }
 
 button,
@@ -77,7 +79,7 @@ button:hover {
   cursor: pointer;
 }
 .col-6 {
-  float: center;
+  float: left;
  
 }
 form {
