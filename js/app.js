@@ -51,8 +51,6 @@ $(document).ready(function () {
     interval = setInterval(timeCounter, 1000);
   });
 
-
-
   // timer functions below
   function convertSecs(s) {
     min = Math.floor(s / 60);
