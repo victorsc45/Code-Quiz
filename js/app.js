@@ -60,12 +60,12 @@ $(document).ready(function () {
     }
   }
 
-  // Timer counter  and 
+  // Timer counter  begins with the startquiz button
   function timeCounter() {
     countIt++;
     finalTimer = timeAmount - countIt - loseTime;
     timer.html(convertSecs(finalTimer));
-    // loseTime = loseTime + 0;
+
     //Stop timer if total time is reached
     if (finalTimer <= 0) {
       console.log(finalTimer);
@@ -78,7 +78,7 @@ $(document).ready(function () {
     }
   }
 
-
+  //High Score elements and intialize local storage
   $(".high").on("click", function (event) {
     event.preventDefault();
     $("#initials").show();
@@ -104,7 +104,7 @@ $(document).ready(function () {
   }
 
   function renderhighs() {
-    // Clear highList element and update highCountSpan
+    // Clear highList element 
     highList.innerHTML = "";
     highCountSpan.textContent = highs.length;
 
@@ -119,6 +119,7 @@ $(document).ready(function () {
 
 
       highList.appendChild(li);
+
     }
   }
 
@@ -127,17 +128,14 @@ $(document).ready(function () {
     localStorage.setItem("highs", JSON.stringify(highs));
   }
 
-  // When form is submitted...
+  // When form is submitted new highscore 
   highSave.addEventListener("click", function (event) {
     event.preventDefault();
 
     var highText = highInput.value.trim()
     console.log("INitials:", highText)
 
-    // Return from function early if submitted highText is blank
-    // if (highText === "") {
-    //   return;
-    // }
+
 
     // Add new highText to highs array, clear the input
     var newScore = {
@@ -145,26 +143,14 @@ $(document).ready(function () {
     }
     highs.push(newScore);
     highInput.value = "";
-
+    $("#save").hide();
+    $("#high-text").hide();
     // Store updated highs in localStorage, re-render the list
     storehighs();
     renderhighs();
   });
-  //When a element inside of the highList is clicked...
-  // highList.addEventListener("click", function (event) {
-  //   var element = event.target;
 
-  //If that element is a button...
-  //if (element.matches("button") === true) {
-  // Get its data-index value and remove the high element from the list
-  // var index = element.parentElement.getAttribute("data-index");
-  // highs.splice(index, 1);
-
-  // Store updated highs in localStorage, re-render the list
-  //storehighs();
-  //  renderhighs();
-  //  }
-  // });
+  //function to list Objects for questions
   function codeQuiz(i) {
     var questions = [
       {
@@ -355,7 +341,7 @@ $(document).ready(function () {
 
     correctAnswer = questions[i].answer;
     numOfQuestions = questions[i].question;
-    let chooseItem = [];
+
     loadQandA(questions, i);
   }
 
@@ -379,7 +365,8 @@ $(document).ready(function () {
       if (!$("input[name='r1']:checked").val()) {
         $("#result").html("Must choose an answer!");
       } else {
-        $("#final").html("The correct answer is " + " " + (correctAnswer + 1));
+        // $("#final").html("The correct answer is " + " " + (correctAnswer + 1));
+        $("#final").empty();
         if (document.getElementById("r1").checked) {
           userAnswer = document.getElementById("r1").value;
         } else if (document.getElementById("r2").checked) {
@@ -457,7 +444,7 @@ $(document).ready(function () {
       scoreTotal = scoreTotal + 0;
       $("#result").html("Answer is incorrect!");
       $("#score").html(scoreTotal);
-      $("#currentQuest").html(" " + "of" + " " + counter);
+      $("#currentQuest").html(" " + " of" + " " + counter);
 
     } else if (x == true) {
       counter++;
@@ -466,34 +453,29 @@ $(document).ready(function () {
       scoreTotal++;
       $("#result").html("Answer is correct!");
       $("#score").html(scoreTotal);
-      $("#currentQuest").html(" " + "of" + " " + counter);
+      $("#currentQuest").html(" " + " of" + " " + counter);
     }
-
-    final = Math.floor((scoreTotal / counter) * 100);
+    //calculate the total of the number questions right out of 20 
+    final = Math.floor((scoreTotal / 20) * 100);
     nextQuestion();
   }
 
   function endGame() {
+    //empty elements on the DOM 
+    $("input[name='r1']").attr("disabled", false);
+    $(".ques").empty();
+    $("#h1").empty();
+    $("#next").empty();
+    $(".quiz-check").attr("disabled", true);
+    $(".quiz-check").empty();
+    $("input[name='r1']").empty();
+    //display new game and highscore and final totals for player
     $(".new").show();
     $(".new").attr("disabled", false);
-    $("input[name='r1']").attr("disabled", false);
-    $("#a1").html(" ");
-    $("#a2").html(" ");
-    $("#a3").html(" ");
-    $("#a4").html(" ");
-    $("#question").html("Play it again...? ");
-    $("#r1").prop("checked", false);
-    $("#r2").prop("checked", false);
-    $("#r3").prop("checked", false);
-    $("#r4").prop("checked", false);
-    $("#next").attr("disabled", true);
-    $("#next").hide();
-    $(".quiz-check").attr("disabled", true);
-    $(".quiz-check").hide();
+    $("#question").html("Remember there are 20 total questions");
     $(".high").show();
     $("#final").html("The final score is..." + " " + final + "%");
     $("#result").html("Click...Play Again! for another round!");
-    $("input[name='r1']").hide();
     $(".new").click(function (event) {
       console.log("new clicked");
       location.reload(true);

@@ -15,7 +15,7 @@ body {
 }
 h2 {
   text-align: left;
-  font-size: 25px;
+  font-size: 22px;
   line-height: 1;
   margin-bottom: 0;
 }
@@ -34,6 +34,7 @@ h2 {
 
 p {
   margin-left: 10px;
+  font-size: 16px;
 }
 
 label {
@@ -47,11 +48,11 @@ header .top {
 }
 #h1 {
   padding: 10px;
-
+  font-size : 30px;
   color: #fff;
-  /* font-size: 40px; */
+  text-align: center;
 }
-h2 {
+h4 {
   text-align: center;
 }
 
@@ -80,7 +81,7 @@ form {
   border-radius: 25px;
   border-color: white;
   border-width: 12px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 200;
   align-content: center;
   /* margin-left: 260px; */
@@ -183,40 +184,4 @@ form {
   width: auto;
   max-width: 800px;
   margin: 0;
-}
-.main-container > input {
-  height: 50px;
-  width: 100%;
-  padding: 6px;
-  margin-top: 10px;
-  font-size: 2.4em;
-  border: none;
-}
-
-.main-container > ul {
-  list-style-type: none;
-  padding: 0;
-  background-color: white;
-}
-
-.main-container > li {
-  height: 50px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 5px;
-  background-color: #4aaaa4;
-  color: white;
-  font-size: 1.5em;
-  line-height: 1.5;
-}
-
-.main-container > li:before {
-  content: "\200B";
-  position: absolute;
-}
-
-.main-container > li::after {
-  content: " ";
-  display: block;
-  clear: both;
 }
