@@ -68,7 +68,7 @@ $(document).ready(function () {
     finalTimer = timeAmount - countIt - loseTime;
     timer.html(convertSecs(finalTimer));
 
-    //Stop timer if total time is reached
+    //Stop timer if total time is reached end the quiz 
     if (finalTimer <= 0) {
 
       clearInterval(interval);
@@ -116,7 +116,7 @@ $(document).ready(function () {
 
       var li = document.createElement("li");
       console.log(high)
-      li.textContent = Object.keys(high)[0] + "" + high[Object.keys(high)[0]];
+      li.textContent = (Object.keys(high)[0] + " " + "High Score" + " " + high[Object.keys(high)[0]] + "%");
       li.setAttribute("data-index", i);
 
       //appending new element with key objects attributes set
@@ -432,7 +432,11 @@ $(document).ready(function () {
 
 
       //condition to end the game if all questions answered
-      if (counter >= 20) {
+      if (counter === 20) {
+        clearInterval(interval);
+        countIt = 0;
+        loseTime = 0;
+        timer.html("min 00 : seconds 00 times up player!");
         endGame();
       }
       else {

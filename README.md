@@ -73,7 +73,7 @@ The following links were used as reference as research.
 
 ''' https://www.transparenttextures.com
 
-'''Special thanks to @iarcones from trilobot for help with project :)
+''' Special thanks to @iarcones from trilobot for help with project :)
 
 # License
 Open too the public website for JavaScript Code Quiz

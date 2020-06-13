@@ -26,7 +26,7 @@ h4 {
 button,
 input[type="text"] {
   color: white;
-  /* text-shadow: black;	 */
+  text-shadow: black;	
   display: inline-block;
   padding: 5px;
   width: 680px;
@@ -177,3 +177,28 @@ form {
   float: left;
 }
 
+/* Saved scores properties */
+
+li, #initials, #highCounter {
+  margin-left: 10px;
+  font-size : 20px;
+  font-weight: 400;
+}
+#buttn, #save, .high, .new {
+  color: white;
+  text-shadow: black;	
+  display: inline-block;
+  padding: 5px;
+  width: 680px;
+  background-color: #4aaaa4;
+  border-radius: 25px;
+}
+#high-text {
+  color: black;
+  text-shadow: black;	
+  display: inline-block;
+  padding: 5px;
+  width: 680px;
+  background-color: lightgray;
+  border-radius: 25px;
+}
