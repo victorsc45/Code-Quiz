@@ -1,42 +1,81 @@
-# 04 Web APIs: Code Quiz
+# Code Quiz
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+JavaScript code fundamentals quiz web page
 
-## User Story
+# Description
+* Using JavaScript and jQuery create a site for a short JavaScript code quiz
+* Generate a count down timer for the quiz
+* Present next question after answering 
+* If question answered incorrectly subtract time from timer
+* Show results when timer ends or quiz ends
+* Ability to input initials at end of quiz with the score
+* Maintain the stored scores in local storage
+* Ability to clear highscores if wanted
+* Abiltiy to restart new quiz
 
-```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+# Mockup animation of Code Quiz functionality
 
-## Acceptance Criteria
+* <img src="Assets/04-web-apis-homework-demo.gif" width="200px" >
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
+# Code Quiz
 
-The following animation demonstrates the application functionality:
+* Timed quiz on JavaScript fundamentals that stores high scores
+* Check saved scores at the end of quiz
+* Input your initials with your score
+* Try it again
+* Link to deployed site: https://victorsc45.github.io/Code-Quiz/
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+## Spec Criteria
+* Splash screen to explain rules of quiz
+* Main criteria:
+    * Click to start quiz button and also starts timer
+    * Timer start when first question presented
+    * Answer the question presented and if quessed wrong delimit the timer by 5 seconds
+    * Give feedback on answer wrong or correct
+    * When timer ends quiz ends
+    * When all questions answered quiz ends
+    * Show final score
+    * Ability to see previous highscores or any scores saved with initials of player
+    * Ability to maintain saved scores in local storage
+    * Ability to clear saved scores if wanted
+    * Start quiz again if play wants to try again
 
-### Review
+## Minimum Requirements
+* Code Quiz site with count down timer, and local storage for saved scores
+* Functional, deployed application
+* GitHub repository with Readme describing project
+* Use bootstrap and powered by JavaScript/jQuery
 
-You are required to submit the following for review:
+# Instulation
+N/A at this time simply follow the url Select start quiz button from the splash screen
 
-* The URL of the functional, deployed application.
+# Review
+Ensure that JavaScript/jQuery is functioning to set and reset DOM elements. Use local storage to create a saved score area. Ensure count down timer ends game and produces a score. 
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+# Credits
 
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+The following links were used as reference as research.
+
+''' https://developer.mozilla.org/en-US/docs/Web/HTML
+
+''' https://www.w3.org/standards/webdesign/accessibility
+
+''' ''' bootstrap components link starting 'A' and descending '''
+
+''' https://getbootstrap.com/docs/4.5/components/alerts/
+
+''' local storage - Clearing localStorage in javascript? - Stack Overflow
+''' stackoverflow.com
+
+''' Events | jQuery API Documentation  api.jquery.com
+
+''' Challenge: https://thecodingtrain.com/CodingChal...
+
+'''Special thanks to @iarcones from trilobot for help with project :)
+
+# License
+Open too the public website for JavaScript Code Quiz
+
+# Tests
+* test by accessing URL above and take quiz
+* enter player initials in saved scores and clear the local storage / check local storage in console > application > Localstorage
