@@ -1,28 +1,30 @@
 $(document).ready(function () {
   //highscore variables
-  var highInput = document.querySelector("#high-text");
-  var highSave = document.querySelector("#save");
-  var highList = document.querySelector("#high-list");
-  var highCountSpan = document.querySelector("#high-count");
-  var highs = [];
+  let highInput = document.querySelector("#high-text");
+  let highSave = document.querySelector("#save");
+  let highList = document.querySelector("#high-list");
+  let highCountSpan = document.querySelector("#high-count");
+  let highs = [];
 
   //timer variables
-  var timer = $(".timer");
+  let timer = $(".timer");
   let countIt = 0;
   let timeAmount = 120;
   let loseTime = 0;
+
   //variables for quiz question functions
   let i = 0;
   let x = true;
   let q = true;
   let counter = 0;
   let final = 0;
-  // let rock = true;
   let question;
   let answer;
   let chooseItem = [];
   let scoreTotal = 0;
   let interval;
+
+  //hide saved scores elements
   $("#save").hide();
   $("#initials").hide();
   $("#high-text").hide();
@@ -30,10 +32,12 @@ $(document).ready(function () {
   $("#high-list").hide();
   $("#highCounter").hide();
   $("#buttn").hide();
-  $("#top").html("Javascript Code Quiz!");
 
+  //elements will be shown at start of quiz
+  $("#top").html("Javascript Code Quiz!");
   $("#game-form").hide();
   $(".top").hide();
+
   //click start quiz on splash page to begin quiz
   $("#start-button").on("click", function () {
     $("#splash-screen").empty();
@@ -45,7 +49,6 @@ $(document).ready(function () {
     $("#next").attr("disabled", true);
     codeQuiz(i);
     interval = setInterval(timeCounter, 1000);
-
   });
 
 
@@ -118,7 +121,7 @@ $(document).ready(function () {
       li.textContent = Object.keys(high)[0] + "" + high[Object.keys(high)[0]];
       li.setAttribute("data-index", i);
 
-
+      //appending new element with key objects attributes set
       highList.appendChild(li);
 
     }
@@ -135,8 +138,6 @@ $(document).ready(function () {
 
     var highText = highInput.value.trim()
     console.log("INitials:", highText)
-
-
 
     // Add new highText to highs array, clear the input
     var newScore = {
@@ -357,7 +358,7 @@ $(document).ready(function () {
 
     loadQandA(questions, i);
   }
-
+  //load the questions to DOM
   function loadQandA(questions, i) {
     $("#question").html(numOfQuestions);
 
@@ -375,10 +376,11 @@ $(document).ready(function () {
   function validateAnswer(questions, i) {
     $(".quiz-check").click(function (event) {
       event.preventDefault();
+      //validate that an answer is choosen
       if (!$("input[name='r1']:checked").val()) {
         $("#result").html("Must choose an answer!");
       } else {
-        // $("#final").html("The correct answer is " + " " + (correctAnswer + 1));
+        //check the value of the answers on the DOM
         $("#final").empty();
         if (document.getElementById("r1").checked) {
           userAnswer = document.getElementById("r1").value;
@@ -390,12 +392,12 @@ $(document).ready(function () {
           userAnswer = document.getElementById("r4").value;
         }
       }
+      //check if the player answer is correct or incorrect update score
       if (correctAnswer == userAnswer) {
         $("input[name='r1']").each(function () {
           $(this).attr("disabled", "disabled");
         });
         $(".quiz-check").attr("disabled", true);
-
         x = true;
         scoreTot(x);
       } else if (correctAnswer != userAnswer) {
@@ -413,10 +415,9 @@ $(document).ready(function () {
   }
 
   function nextQuestion() {
-
     $("#next").click(function (event) {
+      //prepare the DOM for next questions
       event.preventDefault();
-
       $("input[name='r1']").attr('disabled', false);
       $("#a1").html(" ");
       $("#a2").html(" ");
@@ -432,23 +433,21 @@ $(document).ready(function () {
       $("#next").attr('disabled', true);
 
 
-
-
+      //condition to end the game if all questions answered
       if (counter >= 20) {
         endGame();
-      } else {
-
+      }
+      else {
+        //continue to the next question
         questions = [codeQuiz(++i)];
-
-
         loadQandA(questions, i);
       }
-
     });
 
 
 
   }
+  // calculate the score as each question is answered either incorrect or correct
   function scoreTot(x) {
     if (x != true) {
       counter++;
@@ -468,7 +467,7 @@ $(document).ready(function () {
       $("#score").html(" " + scoreTotal);
       $("#currentQuest").html(" " + " of" + " " + counter);
     }
-    //calculate the total of the number questions right out of 20 
+    //calculate the final total of the number questions right out of 20 
     final = Math.floor((scoreTotal / 20) * 100);
     nextQuestion();
   }
@@ -483,6 +482,7 @@ $(document).ready(function () {
     $(".quiz-check").attr("disabled", true);
     $(".quiz-check").hide();
     $("input[name='r1']").empty();
+
     //display new game and highscore and final totals for player
     $(".new").show();
     $(".new").attr("disabled", false);
@@ -490,8 +490,10 @@ $(document).ready(function () {
     $(".high").show();
     $("#final").html("The final score is..." + " " + final + "%");
     $("#result").html("Click...Play Again! for another round!");
+
+    //Start new quiz button click
     $(".new").click(function (event) {
-      console.log("new clicked");
+
       location.reload(true);
     })
   }
