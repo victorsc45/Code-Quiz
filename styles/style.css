@@ -33,12 +33,18 @@ h2 {
 } */
 
 p {
-  margin-left: 10px;
-  font-size: 16px;
-}
+  margin-left: 20px;
 
+  
+}
+#a1, #a2, #a3, #a4 {
+  margin-left: 10px;
+  font-size : 20px;
+  font-weight: 400;
+}
 label {
   margin-left: 20px;
+ 
 }
 header .top {
   /* background-image: background-color: #c8ebe9; */
@@ -62,7 +68,7 @@ input[type="text"] {
   /* text-shadow: black;	 */
   display: inline-block;
   padding: 5px;
-  width: 800px;
+  width: 680px;
   background-color: #4aaaa4;
   border-radius: 25px;
 }
@@ -72,12 +78,11 @@ button:hover {
 }
 .col-6 {
   float: center;
-  /* margin-left: 80px;
-	margin-top: 60px; */
+ 
 }
 form {
   background-color: #4aaaa4;
-  width: 800px;
+  width: 680px;
   border-radius: 25px;
   border-color: white;
   border-width: 12px;

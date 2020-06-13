@@ -9,7 +9,7 @@ $(document).ready(function () {
   //timer variables
   var timer = $(".timer");
   let countIt = 0;
-  let timeAmount = 60;
+  let timeAmount = 120;
   let loseTime = 0;
   //variables for quiz question functions
   let i = 0;
@@ -434,7 +434,7 @@ $(document).ready(function () {
 
 
 
-      if (counter == 20) {
+      if (counter >= 20) {
         endGame();
       } else {
 
@@ -456,7 +456,7 @@ $(document).ready(function () {
       delete userAnswer;
       scoreTotal = scoreTotal + 0;
       $("#result").html("Answer is incorrect!");
-      $("#score").html(scoreTotal);
+      $("#score").html(" " + scoreTotal);
       $("#currentQuest").html(" " + " of" + " " + counter);
 
     } else if (x == true) {
@@ -465,7 +465,7 @@ $(document).ready(function () {
       delete userAnswer;
       scoreTotal++;
       $("#result").html("Answer is correct!");
-      $("#score").html(scoreTotal);
+      $("#score").html(" " + scoreTotal);
       $("#currentQuest").html(" " + " of" + " " + counter);
     }
     //calculate the total of the number questions right out of 20 
