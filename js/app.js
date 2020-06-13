@@ -29,19 +29,20 @@ $(document).ready(function () {
   $("#high-count").hide();
   $("#high-list").hide();
   $("#highCounter").hide();
+  $("#buttn").hide();
   $("#top").html("Javascript Code Quiz!");
 
   $("#game-form").hide();
   $(".top").hide();
   //click start quiz on splash page to begin quiz
   $("#start-button").on("click", function () {
-    $("#splash-screen").hide();
+    $("#splash-screen").empty();
+    $(".new").hide();
+    $(".high").hide();
     $("#game-form").show();
     $("input[name='r1']").show();
     $(".top").show();
     $("#next").attr("disabled", true);
-    $(".new").hide();
-    $(".high").hide();
     codeQuiz(i);
     interval = setInterval(timeCounter, 1000);
 
@@ -68,8 +69,7 @@ $(document).ready(function () {
 
     //Stop timer if total time is reached
     if (finalTimer <= 0) {
-      console.log(finalTimer);
-      console.log(timeAmount);
+
       clearInterval(interval);
       countIt = 0;
       loseTime = 0;
@@ -87,6 +87,7 @@ $(document).ready(function () {
     $("#high-count").show();
     $("#high-list").show();
     $("#save").show();
+    $("#buttn").show();
     init();
   });
   function init() {
@@ -145,11 +146,23 @@ $(document).ready(function () {
     highInput.value = "";
     $("#save").hide();
     $("#high-text").hide();
+    $("#initials").hide();
+
+
     // Store updated highs in localStorage, re-render the list
     storehighs();
     renderhighs();
   });
-
+  $("#buttn").click(function (event) {
+    event.preventDefault();
+    var key;
+    for (var i = 0; i < localStorage.length; i++) {
+      key = localStorage.key(i);
+      localStorage.removeItem(key);
+    }
+    $("#high-list").empty();
+    $("#highCounter").empty();
+  });
   //function to list Objects for questions
   function codeQuiz(i) {
     var questions = [
@@ -465,9 +478,10 @@ $(document).ready(function () {
     $("input[name='r1']").attr("disabled", false);
     $(".ques").empty();
     $("#h1").empty();
-    $("#next").empty();
+    $("#next").attr("disabled", true);
+    $("#next").hide();
     $(".quiz-check").attr("disabled", true);
-    $(".quiz-check").empty();
+    $(".quiz-check").hide();
     $("input[name='r1']").empty();
     //display new game and highscore and final totals for player
     $(".new").show();
