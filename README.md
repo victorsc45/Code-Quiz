@@ -15,7 +15,7 @@ JavaScript code fundamentals quiz web page
 
 # Mockup animation of Code Quiz functionality
 
-* <img src="Assets/04-web-apis-homework-demo.gif" width="200px" >
+* <img src="Assets/04-web-apis-homework-demo.gif" width="400px" >
 
 # Code Quiz
 
