@@ -54,16 +54,85 @@
 .col-lg-12 {
   width: 100%;
 }
-
-
-/* mobile, grid */
-@media only screen and (max-width: 580px) {
+/* media query for col */
+@media only screen and (max-width: 990px) {
   /* 3 columns, 3/12 in % */
   button,
   input[type="text"],
-  p, label, h1, h4
+  p, label, #h1, h4
    {
-    width:auto;
+    width:70%;
+  }
+  .col-xs-3 {
+    width: 25%;
+    float:left
+   
+  }
+
+  /* 4 columns */
+  .col-sm-4 {
+    width: 33%;
+    float:left;
+  
+  }
+
+  /* 6 columns */
+  .col-md-6 {
+    width: 50%;
+    float:left;
+
+  }
+
+  /* 12 columns */
+  .col-lg-12 {
+    width: 100%;
+    float: left;
+  }
+}
+
+/* media query for col */
+@media only screen and (max-width: 880px) {
+ 
+  button,
+  input[type="text"],
+  p, label, #h1, h4
+   {
+    width:60%;
+  }
+  .col-xs-3 {
+    width: 25%;
+    float:left
+   
+  }
+
+  /* 4 columns */
+  .col-sm-4 {
+    width: 33%;
+    float:left;
+  
+  }
+
+  /* 6 columns */
+  .col-md-6 {
+    width: 50%;
+    float:left;
+
+  }
+
+  /* 12 columns */
+  .col-lg-12 {
+    width: 100%;
+    float: left;
+  }
+}
+/* media query for col */
+@media only screen and (max-width: 680px) {
+
+  button,
+  input[type="text"],
+  p, label, #h1, h4
+   {
+    width:50%;
   }
   .col-xs-3 {
     width: 25%;

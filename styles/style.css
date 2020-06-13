@@ -1,63 +1,22 @@
+/* boxsizing to prevent padding issues */
 * {
   box-sizing: border-box;
 }
-
+/* body background and font */
 body {
   background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
-  /* background-image:  */
-  /* linear-gradient(rgba(255,0,0,0.8)); */
-  /* background-color: black; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   font-family: "Roboto", sans-serif;
   color: white;
 }
+/* element stylings */
 h2 {
   text-align: left;
   font-size: 22px;
   line-height: 1;
   margin-bottom: 0;
-}
-/* .line-1, .line-2 {
-	
-	text-shadow: all;
-	font-family: 'Roboto', sans-serif;
-	font-size: 30px;
-	color: red;
-	outline-color: solid black;	
-	outline-width: 2px;
-	padding-left:120px;
-	font-weight: 400;
-
-} */
-
-p {
-  margin-left: 20px;
-
-  
-}
-#a1, #a2, #a3, #a4 {
-  margin-left: 10px;
-  font-size : 20px;
-  font-weight: 400;
-}
-label {
-  margin-left: 20px;
- 
-}
-header .top {
-  /* background-image: background-color: #c8ebe9; */
-  background-image: url("https://www.transparenttextures.com/patterns/broken-noise.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-  background-image: repeat;
-}
-#h1 {
-  padding: 10px;
-  font-size : 30px;
-  color: #fff;
-  text-align: center;
-  width: auto;
 }
 h4 {
   text-align: center;
@@ -74,6 +33,33 @@ input[type="text"] {
   background-color: #4aaaa4;
   border-radius: 25px;
 }
+p {
+  margin-left: 20px;
+}
+/* answer elements passed to the DOM from JS stylings */
+#a1, #a2, #a3, #a4 {
+  margin-left: 10px;
+  font-size : 20px;
+  font-weight: 400;
+}
+label {
+  margin-left: 20px;
+ 
+}
+ /* banner of quiz background */
+header .top {
+   background-image: url("https://www.transparenttextures.com/patterns/broken-noise.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  background-image: repeat;
+}
+/* special heading text properties */
+#h1 {
+  padding: 10px;
+  font-size : 30px;
+  color: #fff;
+  text-align: center;
+  width: auto;
+}
 
 button:hover {
   cursor: pointer;
@@ -82,6 +68,7 @@ button:hover {
   float: left;
  
 }
+/* quiz form properties */
 form {
   background-color: #4aaaa4;
   width: 680px;
@@ -91,8 +78,9 @@ form {
   font-size: 16px;
   font-weight: 200;
   align-content: center;
-  /* margin-left: 260px; */
+  
 }
+/* splash screen properties */
 #splashscreen {
   width: 100%;
   height: 100%;
@@ -104,7 +92,7 @@ form {
   z-index: 1000;
   display: none;
 }
-
+/* contents of the splash screen manipulated properties */
 .content {
   color: #fff;
   background-color: #4aaaa4;
@@ -168,7 +156,7 @@ form {
   margin-bottom: 50px;
   border-radius: 3px;
 }
-
+/* header properties */
 #top {
   width: 100%;
   font-size: 40px;
@@ -177,6 +165,7 @@ form {
   padding: 10px;
   margin-bottom: 20px;
 }
+/* timer style properties */
 #minutes {
   font-size: 2em;
   float: left;
@@ -187,8 +176,4 @@ form {
   font-size: 1em;
   float: left;
 }
-.main-container {
-  width: auto;
-  max-width: 800px;
-  margin: 0;
-}
+
