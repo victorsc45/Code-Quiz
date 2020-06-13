@@ -436,7 +436,7 @@ $(document).ready(function () {
         clearInterval(interval);
         countIt = 0;
         loseTime = 0;
-        timer.html("min 00 : seconds 00 times up player!");
+        timer.html("You beat the countdown player!");
         endGame();
       }
       else {
