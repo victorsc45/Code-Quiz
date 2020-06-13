@@ -433,10 +433,11 @@ $(document).ready(function () {
 
       //condition to end the game if all questions answered
       if (counter === 20) {
+        timer.html("You beat the countdown player!");
+        // clears the timer if all questions done
         clearInterval(interval);
         countIt = 0;
         loseTime = 0;
-        timer.html("You beat the countdown player!");
         endGame();
       }
       else {

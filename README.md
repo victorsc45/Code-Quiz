@@ -60,7 +60,7 @@ The following links were used as reference as research.
 
 ''' https://www.w3.org/standards/webdesign/accessibility
 
-''' ''' bootstrap components link starting 'A' and descending '''
+''' ''' bootstrap components link starting 'A' and descending ''' '''
 
 ''' https://getbootstrap.com/docs/4.5/components/alerts/
 
