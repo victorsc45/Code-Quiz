@@ -111,10 +111,10 @@ $(document).ready(function () {
     highCountSpan.textContent = highs.length;
 
     // Render a new li for each high
-    for (var i = 0; i < highs.length; i++) {
-      var high = highs[i];
+    for (let i = 0; i < highs.length; i++) {
+      let high = highs[i];
 
-      var li = document.createElement("li");
+      let li = document.createElement("li");
       console.log(high)
       li.textContent = (Object.keys(high)[0] + " " + "High Score" + " " + high[Object.keys(high)[0]] + "%");
       li.setAttribute("data-index", i);
@@ -134,11 +134,11 @@ $(document).ready(function () {
   highSave.addEventListener("click", function (event) {
     event.preventDefault();
 
-    var highText = highInput.value.trim()
+    let highText = highInput.value.trim()
     console.log("INitials:", highText)
 
     // Add new highText to highs array, clear the input
-    var newScore = {
+    let newScore = {
       [highText]: final
     }
     highs.push(newScore);
@@ -154,8 +154,8 @@ $(document).ready(function () {
   });
   $("#buttn").click(function (event) {
     event.preventDefault();
-    var key;
-    for (var i = 0; i < localStorage.length; i++) {
+    let key;
+    for (let i = 0; i < localStorage.length; i++) {
       key = localStorage.key(i);
       localStorage.removeItem(key);
     }
@@ -164,7 +164,7 @@ $(document).ready(function () {
   });
   //function to list Objects for questions
   function codeQuiz(i) {
-    var questions = [
+    let questions = [
       {
         question: "Inside which HTML element do we put JavaScript?",
         chooseItem: [
@@ -275,10 +275,10 @@ $(document).ready(function () {
       {
         question: "What is the correct way to write a JavaScript array?",
         chooseItem: [
-          'var colors = ["red", "green", "blue"]',
-          'var colors = (1:"red", 2:"green", 3:"blue")',
-          'var colors = "red", "green", "blue"',
-          'var colors = 1 = ("red"), 2 = ("green"), 3 = ("blue")',
+          'let colors = ["red", "green", "blue"]',
+          'let colors = (1:"red", 2:"green", 3:"blue")',
+          'let colors = "red", "green", "blue"',
+          'let colors = 1 = ("red"), 2 = ("green"), 3 = ("blue")',
         ],
         answer: 0,
       },
@@ -321,7 +321,7 @@ $(document).ready(function () {
       {
         question: "How do you declare a JavaScript variable?",
         chooseItem: [
-          "var carWheel",
+          "let carWheel",
           "variable carWheel",
           "create carWheel",
           "v carWheel",
