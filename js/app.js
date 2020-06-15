@@ -360,6 +360,8 @@ $(document).ready(function () {
   function loadQandA(questions, i) {
     $("#question").html(numOfQuestions);
 
+
+
     $("#a1").html("1: " + " " + questions[i].chooseItem[0]);
 
     $("#a2").html("2: " + " " + questions[i].chooseItem[1]);
@@ -369,8 +371,8 @@ $(document).ready(function () {
     $("#a4").html("4: " + " " + questions[i].chooseItem[3]);
 
     validateAnswer(questions, i);
-  }
 
+  }
   function validateAnswer(questions, i) {
     $(".quiz-check").click(function (event) {
       event.preventDefault();
@@ -456,6 +458,7 @@ $(document).ready(function () {
       counter++;
       correctAnswer = "";
       userAnswer = "";
+      chooseItem[parseInt("")];
       scoreTotal = scoreTotal + 0;
       $("#result").html("Answer is incorrect!");
       $("#score").html(" " + scoreTotal);
@@ -465,6 +468,7 @@ $(document).ready(function () {
       counter++;
       correctAnswer = "";
       userAnswer = "";
+      chooseItem[parseInt("")];
       scoreTotal++;
       $("#result").html("Answer is correct!");
       $("#score").html(" " + scoreTotal);
