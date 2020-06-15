@@ -454,8 +454,8 @@ $(document).ready(function () {
   function scoreTot(x) {
     if (x != true) {
       counter++;
-      delete correctAnswer;
-      delete userAnswer;
+      correctAnswer = "";
+      userAnswer = "";
       scoreTotal = scoreTotal + 0;
       $("#result").html("Answer is incorrect!");
       $("#score").html(" " + scoreTotal);
@@ -463,8 +463,8 @@ $(document).ready(function () {
 
     } else if (x == true) {
       counter++;
-      delete correctAnswer;
-      delete userAnswer;
+      correctAnswer = "";
+      userAnswer = "";
       scoreTotal++;
       $("#result").html("Answer is correct!");
       $("#score").html(" " + scoreTotal);
