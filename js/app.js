@@ -443,9 +443,8 @@ $(document).ready(function () {
         endGame();
       }
       else {
-        //continue to the next question
-        questions = [codeQuiz(++i)];
-        loadQandA(questions, i);
+        i++;
+        codeQuiz(i);
       }
     });
 
@@ -458,7 +457,7 @@ $(document).ready(function () {
       counter++;
       correctAnswer = "";
       userAnswer = "";
-      chooseItem[parseInt("")];
+      chooseItem = "";
       scoreTotal = scoreTotal + 0;
       $("#result").html("Answer is incorrect!");
       $("#score").html(" " + scoreTotal);
@@ -468,7 +467,7 @@ $(document).ready(function () {
       counter++;
       correctAnswer = "";
       userAnswer = "";
-      chooseItem[parseInt("")];
+      chooseItem = "";
       scoreTotal++;
       $("#result").html("Answer is correct!");
       $("#score").html(" " + scoreTotal);
