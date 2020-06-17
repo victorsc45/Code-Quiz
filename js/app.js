@@ -46,7 +46,6 @@ $(document).ready(function () {
     $("#game-form").show();
     $("input[name='r1']").show();
     $(".top").show();
-    $("#next").attr("disabled", true);
     codeQuiz(i);
     interval = setInterval(timeCounter, 1000);
   });
@@ -111,8 +110,8 @@ $(document).ready(function () {
     highCountSpan.textContent = highs.length;
 
     // Render a new li for each high
-    for (let i = 0; i < highs.length; i++) {
-      let high = highs[i];
+    for (let h = 0; h < highs.length; h++) {
+      let high = highs[h];
 
       let li = document.createElement("li");
       console.log(high)
@@ -155,8 +154,8 @@ $(document).ready(function () {
   $("#buttn").click(function (event) {
     event.preventDefault();
     let key;
-    for (let i = 0; i < localStorage.length; i++) {
-      key = localStorage.key(i);
+    for (let j = 0; j < localStorage.length; j++) {
+      key = localStorage.key(j);
       localStorage.removeItem(key);
     }
     $("#high-list").empty();
@@ -410,43 +409,42 @@ $(document).ready(function () {
         scoreTot(x);
       }
 
-      $("#next").attr("disabled", false);
     });
   }
 
   function nextQuestion() {
-    $("#next").click(function (event) {
-      //prepare the DOM for next questions
-      event.preventDefault();
-      $("input[name='r1']").attr('disabled', false);
-      $("#a1").html(" ");
-      $("#a2").html(" ");
-      $("#a3").html(" ");
-      $("#a4").html(" ");
-      $("#question").html(" ");
-      $("#r1").prop('checked', false);
-      $("#r2").prop('checked', false);
-      $("#r3").prop('checked', false);
-      $("#r4").prop('checked', false);
-      $("#result").html(" ");
-      $(".quiz-check").attr('disabled', false);
-      $("#next").attr('disabled', true);
+    //prepare the DOM for next questions
+
+    $("input[name='r1']").attr('disabled', false);
+    $("#a1").html(" ");
+    $("#a2").html(" ");
+    $("#a3").html(" ");
+    $("#a4").html(" ");
+    $("#question").html(" ");
+    $("#r1").prop('checked', false);
+    $("#r2").prop('checked', false);
+    $("#r3").prop('checked', false);
+    $("#r4").prop('checked', false);
+    $("#result").html(" ");
+    $(".quiz-check").attr('disabled', false);
+    //condition to end the game if all questions answered
+    if (counter === 20) {
+      timer.html("You beat the countdown player!");
+      // clears the timer if all questions done
+      clearInterval(interval);
+      countIt = 0;
+      loseTime = 0;
+      endGame();
+    }
+    else {
+      //continue to the next question
+
+      questions = [codeQuiz(++i)];
 
 
-      //condition to end the game if all questions answered
-      if (counter === 20) {
-        timer.html("You beat the countdown player!");
-        // clears the timer if all questions done
-        clearInterval(interval);
-        countIt = 0;
-        loseTime = 0;
-        endGame();
-      }
-      else {
-        i++;
-        codeQuiz(i);
-      }
-    });
+      loadQandA(questions, i);
+    }
+    // });
 
 
 
@@ -457,7 +455,7 @@ $(document).ready(function () {
       counter++;
       correctAnswer = "";
       userAnswer = "";
-      chooseItem = "";
+      // chooseItem = "";
       scoreTotal = scoreTotal + 0;
       $("#result").html("Answer is incorrect!");
       $("#score").html(" " + scoreTotal);
@@ -467,7 +465,7 @@ $(document).ready(function () {
       counter++;
       correctAnswer = "";
       userAnswer = "";
-      chooseItem = "";
+      // chooseItem = "";
       scoreTotal++;
       $("#result").html("Answer is correct!");
       $("#score").html(" " + scoreTotal);
@@ -483,8 +481,6 @@ $(document).ready(function () {
     $("input[name='r1']").attr("disabled", false);
     $(".ques").empty();
     $("#h1").empty();
-    $("#next").attr("disabled", true);
-    $("#next").hide();
     $(".quiz-check").attr("disabled", true);
     $(".quiz-check").hide();
     $("input[name='r1']").empty();
