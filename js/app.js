@@ -357,6 +357,7 @@ $(document).ready(function () {
   }
   //load the questions to DOM
   function loadQandA(questions, i) {
+
     $("#question").html(numOfQuestions);
 
 
@@ -368,52 +369,56 @@ $(document).ready(function () {
     $("#a3").html("3: " + " " + questions[i].chooseItem[2]);
 
     $("#a4").html("4: " + " " + questions[i].chooseItem[3]);
-
-    validateAnswer(questions, i);
+    $(".quiz-check").attr("disabled", false);
+    //validateAnswer(questions, i);
 
   }
-  function validateAnswer(questions, i) {
-    $(".quiz-check").click(function (event) {
-      event.preventDefault();
-      //validate that an answer is choosen
-      if (!$("input[name='r1']:checked").val()) {
-        $("#result").html("Must choose an answer!");
-      } else {
-        //check the value of the answers on the DOM
-        $("#final").empty();
-        if (document.getElementById("r1").checked) {
-          userAnswer = document.getElementById("r1").value;
-        } else if (document.getElementById("r2").checked) {
-          userAnswer = document.getElementById("r2").value;
-        } else if (document.getElementById("r3").checked) {
-          userAnswer = document.getElementById("r3").value;
-        } else if (document.getElementById("r4").checked) {
-          userAnswer = document.getElementById("r4").value;
-        }
-      }
-      //check if the player answer is correct or incorrect update score
-      if (correctAnswer == userAnswer) {
-        $("input[name='r1']").each(function () {
-          $(this).attr("disabled", "disabled");
-        });
-        $(".quiz-check").attr("disabled", true);
-        x = true;
-        scoreTot(x);
-      } else if (correctAnswer != userAnswer) {
-        $("input[name='r1']").each(function () {
-          $(this).attr("disabled", "disabled");
-        });
-        $(".quiz-check").attr("disabled", true);
-        loseTime = loseTime + 5;
-        x = false;
-        scoreTot(x);
-      }
+  // function validateAnswer(questions, i) {
 
-    });
-  }
+  $(".quiz-check").on("click", function () {
+    event.preventDefault();
+    //validate that an answer is choosen
+    if (!$("input[name='r1']:checked").val()) {
+      $("#result").html("Must choose an answer!");
+    } else {
+      //check the value of the answers on the DOM
+      $("#final").empty();
+
+      if (document.getElementById("r1").checked) {
+        userAnswer = document.getElementById("r1").value;
+      } else if (document.getElementById("r2").checked) {
+        userAnswer = document.getElementById("r2").value;
+      } else if (document.getElementById("r3").checked) {
+        userAnswer = document.getElementById("r3").value;
+      } else if (document.getElementById("r4").checked) {
+        userAnswer = document.getElementById("r4").value;
+      }
+    }
+
+    //check if the player answer is correct or incorrect update score
+    if (correctAnswer == userAnswer) {
+      $("input[name='r1']").each(function () {
+        $(this).attr("disabled", true);
+      });
+      $(".quiz-check").attr("disabled", true);
+      x = true;
+      scoreTot(x);
+    } else if (correctAnswer != userAnswer) {
+      $("input[name='r1']").each(function () {
+        $(this).attr("disabled", true);
+      });
+      $(".quiz-check").attr("disabled", true);
+      loseTime = loseTime + 5;
+      x = false;
+      scoreTot(x);
+    }
+
+  });
+  // }
 
   function nextQuestion() {
     //prepare the DOM for next questions
+    $(".quiz-check").attr('disabled', true);
 
     $("input[name='r1']").attr('disabled', false);
     $("#a1").html(" ");
@@ -426,8 +431,7 @@ $(document).ready(function () {
     $("#r3").prop('checked', false);
     $("#r4").prop('checked', false);
     $("#result").html(" ");
-    $(".quiz-check").attr('disabled', false);
-    //condition to end the game if all questions answered
+    //condition to end the game if all questions answered//****** */
     if (counter === 20) {
       timer.html("You beat the countdown player!");
       // clears the timer if all questions done
@@ -444,7 +448,7 @@ $(document).ready(function () {
 
       loadQandA(questions, i);
     }
-    // });
+
 
 
 
@@ -471,6 +475,7 @@ $(document).ready(function () {
       $("#score").html(" " + scoreTotal);
       $("#currentQuest").html(" " + " of" + " " + counter);
     }
+    $(".quiz-check").attr("disabled", false);
     //calculate the final total of the number questions right out of 20 
     final = Math.floor((scoreTotal / 20) * 100);
     nextQuestion();
