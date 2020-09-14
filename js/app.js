@@ -375,7 +375,7 @@ $(document).ready(function () {
   }
   // function validateAnswer(questions, i) {
 
-  $(".quiz-check").on("click", function () {
+  $(".quiz-check").on("click", function (event) {
     event.preventDefault();
     //validate that an answer is choosen
     if (!$("input[name='r1']:checked").val()) {
@@ -501,7 +501,7 @@ $(document).ready(function () {
     //Start new quiz button click
     $(".new").click(function (event) {
 
-      location.reload(true);
+      location.reload();
     })
   }
 });
